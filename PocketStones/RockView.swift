@@ -12,20 +12,28 @@ struct RockView: View {
     @Query var rocks: [Rock]
 
     var body: some View {
-        List {
-            ForEach(rocks) { rock in
-                NavigationLink(value: rock) {
-                    VStack {
-                        Text(rock.name)
-                        Text(rock.shape)
+        ZStack {
+            Color.cyan.opacity(0.1)
+                .edgesIgnoringSafeArea(.all)
+            List {
+                    ForEach(rocks) { rock in
+                        NavigationLink(value: rock) {
+                            VStack {
+                                Text(rock.name)
+                                Text(rock.shape)
+                            }
+                        }
                     }
-                }
+                    .onDelete(perform: deleteRock)
             }
-            .onDelete(perform: deleteRock)
+            .listStyle(PlainListStyle()) // Optional: Removes default list styling
+            .background(Color.clear) // Background for the list itself to make it stand out
+            .padding() // Padding to ensure the list is centered
         }
-        .background(Color.red)
     }
     
+    
+        
     init(searchString: String = "") {
         _rocks = Query(filter: #Predicate { rock in
             if searchString.isEmpty {

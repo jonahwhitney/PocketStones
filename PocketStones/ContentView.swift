@@ -20,14 +20,10 @@ struct ContentView: View {
         NavigationStack(path: $path) {
             
             ZStack {
-                
-               
-
                 VStack {
-                    
                     Rectangle()
                         .frame(height: 0)
-                        .background(Color.gray.opacity(0.4))
+                        .background(Color.indigo.opacity(0.4))
                     RockView(searchString: searchText)
                         .navigationTitle("Pocket Stones")
                         .navigationDestination(for: Rock.self) { rock in
@@ -37,7 +33,7 @@ struct ContentView: View {
                         .toolbar {
                             Button("Add Rock", systemImage: "plus" ,action: addRock)
                                 .frame(width: 35, height: 35)
-                                .background(Color.cyan.opacity(0.8))
+                                .background(Color.cyan.opacity(0.5))
                                 .buttonStyle(PlainButtonStyle())
                                 .fontWeight(.black)
                                 .clipShape(Circle())
