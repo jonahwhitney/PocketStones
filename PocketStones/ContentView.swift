@@ -5,19 +5,61 @@
 //  Created by Jonah Whitney on 9/16/24.
 //
 
+import SwiftData
 import SwiftUI
 
 struct ContentView: View {
+    
+    @Environment(\.modelContext) var modelContext
+    @State private var path = [Rock]()
+    
+    @State private var searchText = ""
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        
+        NavigationStack(path: $path) {
+            
+            ZStack {
+                
+               
+
+                VStack {
+                    
+                    Rectangle()
+                        .frame(height: 0)
+                        .background(Color.gray.opacity(0.4))
+                    RockView(searchString: searchText)
+                        .navigationTitle("Pocket Stones")
+                        .navigationDestination(for: Rock.self) { rock in
+                            EditRockView(rock: rock)
+                            
+                        }
+                        .toolbar {
+                            Button("Add Rock", systemImage: "plus" ,action: addRock)
+                                .frame(width: 35, height: 35)
+                                .background(Color.cyan.opacity(0.8))
+                                .buttonStyle(PlainButtonStyle())
+                                .fontWeight(.black)
+                                .clipShape(Circle())
+                        }
+                        .searchable(text: $searchText)
+                }
+            }
         }
-        .padding()
+    }
+    
+    func addRock () {
+        
+        // create new rock
+        let rock = Rock(name: "", shape: "", details: "", purchasePrice: 0)
+        // insert new rock into the modelContext
+        modelContext.insert(rock)
+        // navigate to editing screen
+        path.append(rock)
+        
     }
 }
+
 
 #Preview {
     ContentView()

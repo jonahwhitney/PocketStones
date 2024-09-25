@@ -11,6 +11,9 @@
 		8F8EEE552C987C5A00BF6DEA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8EEE542C987C5A00BF6DEA /* ContentView.swift */; };
 		8F8EEE572C987C5D00BF6DEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F8EEE562C987C5D00BF6DEA /* Assets.xcassets */; };
 		8F8EEE5A2C987C5D00BF6DEA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F8EEE592C987C5D00BF6DEA /* Preview Assets.xcassets */; };
+		8F8EEE612C987E2300BF6DEA /* Rock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8EEE602C987E2300BF6DEA /* Rock.swift */; };
+		8F8EEE632C988D6D00BF6DEA /* EditRockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8EEE622C988D6D00BF6DEA /* EditRockView.swift */; };
+		8FE1B2A62CA478360067A737 /* RockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE1B2A52CA478360067A737 /* RockView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		8F8EEE542C987C5A00BF6DEA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8F8EEE562C987C5D00BF6DEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8F8EEE592C987C5D00BF6DEA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8F8EEE602C987E2300BF6DEA /* Rock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rock.swift; sourceTree = "<group>"; };
+		8F8EEE622C988D6D00BF6DEA /* EditRockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRockView.swift; sourceTree = "<group>"; };
+		8FE1B2A52CA478360067A737 /* RockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RockView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +59,9 @@
 			children = (
 				8F8EEE522C987C5A00BF6DEA /* PocketStonesApp.swift */,
 				8F8EEE542C987C5A00BF6DEA /* ContentView.swift */,
+				8FE1B2A52CA478360067A737 /* RockView.swift */,
+				8F8EEE622C988D6D00BF6DEA /* EditRockView.swift */,
+				8F8EEE602C987E2300BF6DEA /* Rock.swift */,
 				8F8EEE562C987C5D00BF6DEA /* Assets.xcassets */,
 				8F8EEE582C987C5D00BF6DEA /* Preview Content */,
 			);
@@ -138,7 +147,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F8EEE552C987C5A00BF6DEA /* ContentView.swift in Sources */,
+				8FE1B2A62CA478360067A737 /* RockView.swift in Sources */,
+				8F8EEE632C988D6D00BF6DEA /* EditRockView.swift in Sources */,
 				8F8EEE532C987C5A00BF6DEA /* PocketStonesApp.swift in Sources */,
+				8F8EEE612C987E2300BF6DEA /* Rock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
