@@ -13,8 +13,8 @@ struct RockView: View {
 
     var body: some View {
         ZStack {
-//            Color.cyan.opacity(0.1)
-//                .edgesIgnoringSafeArea(.all)
+
+            // list that displays rocks stored in database
             List {
                     ForEach(rocks) { rock in
                         NavigationLink(value: rock) {
@@ -33,7 +33,7 @@ struct RockView: View {
     }
     
     
-        
+    // initializes search string as empty, if searchString is empty the list returns all entries. Otherwise it displays entries that match the search parameters.
     init(searchString: String = "") {
         _rocks = Query(filter: #Predicate { rock in
             if searchString.isEmpty {
@@ -44,6 +44,7 @@ struct RockView: View {
         })
     }
     
+    // delete rock from database
     func deleteRock(at offsets: IndexSet) {
         for offset in offsets {
             let rock = rocks[offset]
