@@ -20,12 +20,16 @@ struct EditRockView: View {
         }()
         
         ZStack {
+            // sets background color
+            Color.cyan.opacity(0.1)
+                .edgesIgnoringSafeArea(.all)
+            
             VStack {
                 Rectangle()
                     .frame(height: 0)
                     .background(Color.indigo.opacity(0.4))
                 
-                Form {
+                List {
                     Section {
                         TextField("Name", text: $rock.name)
                             .textContentType(.name)
@@ -34,15 +38,18 @@ struct EditRockView: View {
                         
                         TextField("Purchase Price", value: $rock.purchasePrice, formatter: formatter)
                     }
-                    
-                    Section {
+                                        
+                    Section(header: Text("")) {
                         
                         TextField("Details", text: $rock.details, axis: .vertical)
-                        
                     }
                 }
                 .navigationTitle("Rock Info")
                 .navigationBarTitleDisplayMode(.inline)
+                .listStyle(PlainListStyle()) // Optional: Removes default list styling
+                .background(Color.clear) // Background for the list itself to make it stand out
+                .padding() // Padding to ensure the list is centered
+
             }
         }
     }

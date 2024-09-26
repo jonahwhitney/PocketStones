@@ -13,8 +13,8 @@ struct RockView: View {
 
     var body: some View {
         ZStack {
-            Color.cyan.opacity(0.1)
-                .edgesIgnoringSafeArea(.all)
+//            Color.cyan.opacity(0.1)
+//                .edgesIgnoringSafeArea(.all)
             List {
                     ForEach(rocks) { rock in
                         NavigationLink(value: rock) {

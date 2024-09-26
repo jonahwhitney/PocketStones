@@ -18,8 +18,10 @@ struct ContentView: View {
     var body: some View {
         
         NavigationStack(path: $path) {
-            
             ZStack {
+                Color.cyan.opacity(0.1)
+                    .edgesIgnoringSafeArea(.all)
+                
                 VStack {
                     Rectangle()
                         .frame(height: 0)
@@ -32,11 +34,11 @@ struct ContentView: View {
                         }
                         .toolbar {
                             Button("Add Rock", systemImage: "plus" ,action: addRock)
-                                .frame(width: 35, height: 35)
-                                .background(Color.cyan.opacity(0.5))
+//                                .frame(width: 35, height: 35)
+//                                .background(Color.cyan.opacity(0.1))
                                 .buttonStyle(PlainButtonStyle())
                                 .fontWeight(.black)
-                                .clipShape(Circle())
+//                                .clipShape(Circle())
                         }
                         .searchable(text: $searchText)
                 }
