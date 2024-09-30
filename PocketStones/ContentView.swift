@@ -38,20 +38,15 @@ struct ContentView: View {
                             
                         }
                         .toolbar {
-                            
+                            // button for calling sorting method
                             Button("Sort", systemImage: "arrow.up.arrow.down" ,action: addRock)
-//                                .frame(width: 35, height: 35)
-//                                .background(Color.cyan.opacity(0.1))
                                 .buttonStyle(PlainButtonStyle()) // overrides default button styling
                                 .fontWeight(.black)
-//                                .clipShape(Circle())
                             
+                            // button for adding rocks the database
                             Button("Add Rock", systemImage: "plus" ,action: addRock)
-//                                .frame(width: 35, height: 35)
-//                                .background(Color.cyan.opacity(0.1))
                                 .buttonStyle(PlainButtonStyle()) // overrides default button styling
                                 .fontWeight(.black)
-//                                .clipShape(Circle())
                             
                         }
                         // creates searchbar
@@ -61,6 +56,7 @@ struct ContentView: View {
         }
     }
     
+    // method that creates a new rock, inserts it into the modelContext, and navigates to EditRockView
     func addRock () {
         
         // create new rock

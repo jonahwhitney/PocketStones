@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EditRockView: View {
-    
+    // bindable variable for the rock that is created. allows the user's input to bind to the new rock object.
     @Bindable var rock: Rock
     
     var body: some View {
@@ -43,7 +43,7 @@ struct EditRockView: View {
                     }
                     
                     // section header is empty string so it creates space between the sections.
-                    Section(header: Text("")) {
+                    Section(header: Text("Details")) {
                         
                         TextField("Details", text: $rock.details, axis: .vertical)
                     }
