@@ -40,6 +40,8 @@ struct RockView: View {
                 true
             } else {
                 rock.name.localizedStandardContains(searchString)
+                || rock.shape.localizedStandardContains(searchString)
+                || rock.details.localizedStandardContains(searchString)
             }
         })
     }
