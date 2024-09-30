@@ -29,6 +29,7 @@ struct ContentView: View {
                     Rectangle()
                         .frame(height: 0)
                         .background(Color.indigo.opacity(0.4))
+                    
                     // calls in list from RockView
                     RockView(searchString: searchText)
                         .navigationTitle("Pocket Stones")
@@ -37,12 +38,21 @@ struct ContentView: View {
                             
                         }
                         .toolbar {
+                            
+                            Button("Sort", systemImage: "arrow.up.arrow.down" ,action: addRock)
+//                                .frame(width: 35, height: 35)
+//                                .background(Color.cyan.opacity(0.1))
+                                .buttonStyle(PlainButtonStyle()) // overrides default button styling
+                                .fontWeight(.black)
+//                                .clipShape(Circle())
+                            
                             Button("Add Rock", systemImage: "plus" ,action: addRock)
 //                                .frame(width: 35, height: 35)
 //                                .background(Color.cyan.opacity(0.1))
                                 .buttonStyle(PlainButtonStyle()) // overrides default button styling
                                 .fontWeight(.black)
 //                                .clipShape(Circle())
+                            
                         }
                         // creates searchbar
                         .searchable(text: $searchText)
