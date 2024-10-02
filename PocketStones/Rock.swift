@@ -14,9 +14,9 @@ class Rock {
     var name: String
     var shape: String
     var details: String
-    var purchasePrice: Float
+    var purchasePrice: Int
     
-    init(name: String, shape: String, details: String, purchasePrice: Float) {
+    init(name: String, shape: String, details: String, purchasePrice: Int) {
         self.name = name
         self.shape = shape
         self.details = details

@@ -18,9 +18,10 @@ struct RockView: View {
             List {
                     ForEach(rocks) { rock in
                         NavigationLink(value: rock) {
-                            VStack {
+                            VStack (alignment: .leading) {
                                 Text(rock.name)
                                 Text(rock.shape)
+                                Text("$\(rock.purchasePrice)")
                             }
                         }
                     }
