@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F38B67A2CADA5E80024DE61 /* TotalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F38B6792CADA5E80024DE61 /* TotalsView.swift */; };
+		8F38B67C2CADA8740024DE61 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F38B67B2CADA8740024DE61 /* MainView.swift */; };
 		8F8EEE532C987C5A00BF6DEA /* PocketStonesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8EEE522C987C5A00BF6DEA /* PocketStonesApp.swift */; };
 		8F8EEE552C987C5A00BF6DEA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8EEE542C987C5A00BF6DEA /* ContentView.swift */; };
 		8F8EEE572C987C5D00BF6DEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F8EEE562C987C5D00BF6DEA /* Assets.xcassets */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8F38B6792CADA5E80024DE61 /* TotalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalsView.swift; sourceTree = "<group>"; };
+		8F38B67B2CADA8740024DE61 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8F8EEE4F2C987C5A00BF6DEA /* PocketStones.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketStones.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F8EEE522C987C5A00BF6DEA /* PocketStonesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketStonesApp.swift; sourceTree = "<group>"; };
 		8F8EEE542C987C5A00BF6DEA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,8 +63,10 @@
 			children = (
 				8F8EEE522C987C5A00BF6DEA /* PocketStonesApp.swift */,
 				8F8EEE542C987C5A00BF6DEA /* ContentView.swift */,
+				8F38B67B2CADA8740024DE61 /* MainView.swift */,
 				8FE1B2A52CA478360067A737 /* RockView.swift */,
 				8F8EEE622C988D6D00BF6DEA /* EditRockView.swift */,
+				8F38B6792CADA5E80024DE61 /* TotalsView.swift */,
 				8F8EEE602C987E2300BF6DEA /* Rock.swift */,
 				8F8EEE562C987C5D00BF6DEA /* Assets.xcassets */,
 				8F8EEE582C987C5D00BF6DEA /* Preview Content */,
@@ -147,8 +153,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F8EEE552C987C5A00BF6DEA /* ContentView.swift in Sources */,
+				8F38B67C2CADA8740024DE61 /* MainView.swift in Sources */,
 				8FE1B2A62CA478360067A737 /* RockView.swift in Sources */,
 				8F8EEE632C988D6D00BF6DEA /* EditRockView.swift in Sources */,
+				8F38B67A2CADA5E80024DE61 /* TotalsView.swift in Sources */,
 				8F8EEE532C987C5A00BF6DEA /* PocketStonesApp.swift in Sources */,
 				8F8EEE612C987E2300BF6DEA /* Rock.swift in Sources */,
 			);
