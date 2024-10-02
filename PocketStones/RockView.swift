@@ -21,7 +21,7 @@ struct RockView: View {
                             VStack (alignment: .leading) {
                                 Text(rock.name)
                                 Text(rock.shape)
-                                Text("$\(rock.purchasePrice)")
+                                Text("$\(rock.purchasePrice, specifier: "%.2f")")
                             }
                         }
                     }
