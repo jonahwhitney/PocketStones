@@ -13,6 +13,8 @@ struct ContentView: View {
     @Environment(\.modelContext) var modelContext
     @State private var path = [Rock]()
     
+    // var to store the state of sort order
+    @State private var sortOrder = [SortDescriptor(\Rock.name)]
     // initiates search text as empty string
     @State private var searchText = ""
     
@@ -30,18 +32,42 @@ struct ContentView: View {
                         .frame(height: 0)
                         .background(Color.indigo.opacity(0.4))
                     
-                    // calls in list from RockView
-                    RockView(searchString: searchText)
+                    // calls in list from RockView, passes in sortOrder for sort
+                    RockView(searchString: searchText, sortOrder: sortOrder)
                         .navigationTitle("Pocket Stones")
                         .navigationDestination(for: Rock.self) { rock in
                             EditRockView(rock: rock)
                             
                         }
                         .toolbar {
-                            // button for calling sorting method
-                            Button("Sort", systemImage: "arrow.up.arrow.down" ,action: addRock)
-                                .buttonStyle(PlainButtonStyle()) // overrides default button styling
-                                .fontWeight(.black)
+                            // menu for calling sorting method
+                            Menu {
+                                // picker that appears on tapping menu button
+                                Picker("Sort", selection: $sortOrder) {
+                                    // sorts alphabetically
+                                    Text("Alphabetical")
+                                        .tag([SortDescriptor(\Rock.name)])
+                                    
+                                    // sorts reverse alphabetically
+                                    Text("Reverse Alphabetical")
+                                        .tag([SortDescriptor(\Rock.name, order: .reverse)])
+                                    
+                                    // sorts by purchase price - high to low
+                                    Text("Purchase Price (Low to high)")
+                                        .tag([SortDescriptor(\Rock.purchasePrice)])
+                                    
+                                    // sorts by purchase price - low to high
+                                    Text("Purchase Price (High to low")
+                                        .tag([SortDescriptor(\Rock.purchasePrice, order: .reverse)])
+                                }
+                            } label: {
+                                Image(systemName: "arrow.up.arrow.down")
+                                // overrides menu button's default style
+                                    .font(.system(size: 16))
+                                    .fontWeight(.black)
+                                    .foregroundColor(.black)
+                            }
+                            
                             
                             // button for adding rocks the database
                             Button("Add Rock", systemImage: "plus" ,action: addRock)

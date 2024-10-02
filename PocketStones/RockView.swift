@@ -33,8 +33,8 @@ struct RockView: View {
     }
     
     
-    // initializes search string as empty, if searchString is empty the list returns all entries. Otherwise it displays entries that match the search parameters.
-    init(searchString: String = "") {
+    // initializes search string as empty, if searchString is empty the list returns all entries. Otherwise it displays entries that match the search parameters. Accepts sortOrder array to apply to query.
+    init(searchString: String = "", sortOrder: [SortDescriptor<Rock>] = []) {
         _rocks = Query(filter: #Predicate { rock in
             if searchString.isEmpty {
                 true
@@ -43,7 +43,7 @@ struct RockView: View {
                 || rock.shape.localizedStandardContains(searchString)
                 || rock.details.localizedStandardContains(searchString)
             }
-        })
+        }, sort: sortOrder)
     }
     
     // delete rock from database

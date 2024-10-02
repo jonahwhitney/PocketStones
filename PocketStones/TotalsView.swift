@@ -21,7 +21,7 @@ struct TotalsView: View {
                     .foregroundColor(Color.indigo.opacity(0.4)) // Use foregroundColor
                     .overlay(
                         Text("Totals Overview")
-                            .fontWeight(.bold)
+                            .fontWeight(.semibold) // font weight to match navTitle from other views
                             .foregroundColor(.black) // Set text color
                             .padding(.top, 44) // Adjust padding to position below the notch
                             .padding(.horizontal) // Optional: Add horizontal padding
