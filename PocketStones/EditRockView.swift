@@ -59,6 +59,13 @@ struct EditRockView: View {
     }
 }
 
-//#Preview {
-//    EditRockView()
-//}
+#Preview {
+    do {
+        let previewer = try Previewer()
+        
+        return EditRockView(rock: previewer.rock)
+            .modelContainer(previewer.container)
+    } catch {
+        return Text("Failed to create preview: \(error.localizedDescription)")
+    }
+}

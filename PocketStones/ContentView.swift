@@ -11,7 +11,7 @@ import SwiftUI
 struct ContentView: View {
     
     @Environment(\.modelContext) var modelContext
-    @State private var path = [Rock]()
+    @State private var path = NavigationPath()
     
     // var to store the state of sort order
     @State private var sortOrder = [SortDescriptor(\Rock.name)]
@@ -97,5 +97,12 @@ struct ContentView: View {
 
 
 #Preview {
-    ContentView()
+    do {
+        let previewer = try Previewer()
+        
+        return ContentView()
+            .modelContainer(previewer.container)
+    } catch {
+        return Text("Failed to create preview: \(error.localizedDescription)")
+    }
 }

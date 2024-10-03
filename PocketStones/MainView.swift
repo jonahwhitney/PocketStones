@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MainView: View {
     var body: some View {
+        
+        // Tab bar that allows you to swap from the collection to TotalsView
         TabView {
             ContentView()
                 .tabItem {
