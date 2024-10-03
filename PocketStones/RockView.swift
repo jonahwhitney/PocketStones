@@ -18,11 +18,22 @@ struct RockView: View {
             List {
                     ForEach(rocks) { rock in
                         NavigationLink(value: rock) {
-                            VStack (alignment: .leading) {
-                                Text(rock.name)
-                                Text(rock.shape)
-                                Text("$\(rock.purchasePrice, specifier: "%.2f")")
+                            HStack {
+                                VStack (alignment: .leading) {
+                                    Text(rock.name)
+                                    Text(rock.shape)
+                                    Text("$\(rock.purchasePrice, specifier: "%.2f")")
+                                }
+                                
+                                Spacer()
+                                
+                                if let imageData = rock.photo, let uiImage = UIImage(data: imageData) {
+                                    Image(uiImage: uiImage)
+                                        .resizable()
+                                        .scaledToFit()
+                                }
                             }
+                            .frame(height: 80)
                         }
                     }
                     .onDelete(perform: deleteRock)
