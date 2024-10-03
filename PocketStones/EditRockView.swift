@@ -4,12 +4,14 @@
 //
 //  Created by Jonah Whitney on 9/16/24.
 //
-
+import PhotosUI
+import SwiftData
 import SwiftUI
 
 struct EditRockView: View {
     // bindable variable for the rock that is created. allows the user's input to bind to the new rock object.
     @Bindable var rock: Rock
+    @State private var selectedItem: PhotosPickerItem?
     
     var body: some View {
         
@@ -33,7 +35,20 @@ struct EditRockView: View {
                 
                 // used List to create a form because there isn't a good way to override default form styling
                 List {
+                    
                     Section {
+                        if let imageData = rock.photo, let uiImage = UIImage(data: imageData) {
+                            Image(uiImage: uiImage)
+                                .resizable()
+                                .scaledToFit()
+                        }
+                        
+                        PhotosPicker(selection: $selectedItem, matching: .images) {
+                            Label("Select Photo", systemImage: "photo")
+                        }
+                    }
+                    
+                    Section(header: Text("")) {
                         TextField("Name", text: $rock.name)
                             .textContentType(.name)
                         
@@ -53,8 +68,15 @@ struct EditRockView: View {
                 .listStyle(PlainListStyle()) // Optional: Removes default list styling
                 .background(Color.clear) // Background for the list itself to make it stand out
                 .padding() // Padding to ensure the list is centered
-
+                .onChange(of: selectedItem, loadPhoto)
             }
+        }
+    }
+    
+    func loadPhoto() {
+        Task { @MainActor in
+            rock.photo = try await
+            selectedItem?.loadTransferable(type: Data.self)
         }
     }
 }

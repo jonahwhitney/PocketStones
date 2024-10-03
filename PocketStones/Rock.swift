@@ -15,6 +15,7 @@ class Rock {
     var shape: String
     var details: String
     var purchasePrice: Float
+    @Attribute(.externalStorage) var photo: Data?
     
     init(name: String, shape: String, details: String, purchasePrice: Float) {
         self.name = name

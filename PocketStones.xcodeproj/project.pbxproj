@@ -68,9 +68,9 @@
 				8F8EEE542C987C5A00BF6DEA /* ContentView.swift */,
 				8FE1B2A52CA478360067A737 /* RockView.swift */,
 				8F8EEE622C988D6D00BF6DEA /* EditRockView.swift */,
-				8F81D2F82CAEF5D800629172 /* Previewer.swift */,
 				8F38B6792CADA5E80024DE61 /* TotalsView.swift */,
 				8F8EEE602C987E2300BF6DEA /* Rock.swift */,
+				8F81D2F82CAEF5D800629172 /* Previewer.swift */,
 				8F8EEE562C987C5D00BF6DEA /* Assets.xcassets */,
 				8F8EEE582C987C5D00BF6DEA /* Preview Content */,
 			);
