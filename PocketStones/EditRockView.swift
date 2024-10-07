@@ -11,6 +11,7 @@ import SwiftUI
 struct EditRockView: View {
     // bindable variable for the rock that is created. allows the user's input to bind to the new rock object.
     @Bindable var rock: Rock
+    // var for the photo that is selected
     @State private var selectedItem: PhotosPickerItem?
     
     var body: some View {
@@ -37,6 +38,8 @@ struct EditRockView: View {
                 List {
                     
                     Section {
+                        
+                        // if imageData is created then it will be beound to rock's photo property and a UIImage will be created that will display the rocks photo.
                         if let imageData = rock.photo, let uiImage = UIImage(data: imageData) {
                             Image(uiImage: uiImage)
                                 .resizable()
