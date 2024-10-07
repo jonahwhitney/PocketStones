@@ -10,38 +10,38 @@ import SwiftUI
 struct RockView: View {
     @Environment(\.modelContext) var modelContext
     @Query var rocks: [Rock]
-
+    
     var body: some View {
         ZStack {
-
+            
             // list that displays rocks stored in database
             List {
-                    ForEach(rocks) { rock in
-                        NavigationLink(value: rock) {
-                            HStack {
-                                VStack (alignment: .leading) {
-                                    Text(rock.name)
-                                    Text(rock.shape)
-                                    Text("$\(rock.purchasePrice, specifier: "%.2f")")
-                                }
-                                
-                                Spacer()
-                                
-                                // creates constant for imageDate that is bound to rock.photo, if the imageData is there then it creates a UIImage with the imageData.
-                                if let imageData = rock.photo, let uiImage = UIImage(data: imageData) {
-                                    Image(uiImage: uiImage)
-                                        .resizable()
-                                        .scaledToFit()
-                                    // this makes the image resize relative to the parent container it is in. In this case that is the HStack containing the elements in the list.
-                                        .containerRelativeFrame(.horizontal) { size, axis in
-                                            size * 0.2
-                                        }
-                                }
+                ForEach(rocks) { rock in
+                    NavigationLink(value: rock) {
+                        HStack {
+                            VStack (alignment: .leading) {
+                                Text(rock.name)
+                                Text(rock.shape)
+                                Text("$\(rock.purchasePrice, specifier: "%.2f")")
                             }
-
+                            
+                            Spacer()
+                            
+                            // creates constant for imageDate that is bound to rock.photo, if the imageData is there then it creates a UIImage with the imageData.
+                            if let imageData = rock.photo, let uiImage = UIImage(data: imageData) {
+                                Image(uiImage: uiImage)
+                                    .resizable()
+                                    .scaledToFit()
+                                // this makes the image resize relative to the parent container it is in. In this case that is the HStack containing the elements in the list.
+                                    .containerRelativeFrame(.horizontal) { size, axis in
+                                        size * 0.2
+                                    }
+                            }
                         }
+                        
                     }
-                    .onDelete(perform: deleteRock)
+                }
+                .onDelete(perform: deleteRock)
             }
             .listStyle(PlainListStyle()) // Optional: Removes default list styling
             .background(Color.clear) // Background for the list itself to make it stand out
