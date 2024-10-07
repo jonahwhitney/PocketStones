@@ -27,13 +27,18 @@ struct RockView: View {
                                 
                                 Spacer()
                                 
+                                // creates constant for imageDate that is bound to rock.photo, if the imageData is there then it creates a UIImage with the imageData.
                                 if let imageData = rock.photo, let uiImage = UIImage(data: imageData) {
                                     Image(uiImage: uiImage)
                                         .resizable()
                                         .scaledToFit()
+                                    // this makes the image resize relative to the parent container it is in. In this case that is the HStack containing the elements in the list.
+                                        .containerRelativeFrame(.horizontal) { size, axis in
+                                            size * 0.2
+                                        }
                                 }
                             }
-                            .frame(height: 80)
+
                         }
                     }
                     .onDelete(perform: deleteRock)

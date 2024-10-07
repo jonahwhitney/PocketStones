@@ -41,8 +41,14 @@ struct EditRockView: View {
                             Image(uiImage: uiImage)
                                 .resizable()
                                 .scaledToFit()
+                            // this makes the image resize relative to the parent container it is in. In this case that is the list section that holds the PhotosPicker and the image.
+                                .containerRelativeFrame(.horizontal, alignment: .center) { size, axis in
+                                    size * 0.5
+                                }
+                                .frame(maxWidth: .infinity, alignment: .center) // Centers the image
+
                         }
-                        
+
                         PhotosPicker(selection: $selectedItem, matching: .images) {
                             Label("Select Photo", systemImage: "photo")
                         }
@@ -57,7 +63,7 @@ struct EditRockView: View {
                         TextField("Purchase Price", value: $rock.purchasePrice, formatter: formatter)
                     }
                     
-                    // section header is empty string so it creates space between the sections.
+                    // section header with string so it creates space between the sections.
                     Section(header: Text("Details")) {
                         
                         TextField("Details", text: $rock.details, axis: .vertical)
@@ -68,12 +74,13 @@ struct EditRockView: View {
                 .listStyle(PlainListStyle()) // Optional: Removes default list styling
                 .background(Color.clear) // Background for the list itself to make it stand out
                 .padding() // Padding to ensure the list is centered
-                .onChange(of: selectedItem, loadPhoto)
+                .onChange(of: selectedItem, loadPhoto) // calls loadPhoto when image is changed
             }
         }
     }
     
     func loadPhoto() {
+        // task works asychronously in the background. It loads the photo when a photo is seleced.
         Task { @MainActor in
             rock.photo = try await
             selectedItem?.loadTransferable(type: Data.self)
