@@ -8,19 +8,37 @@ import SwiftData
 import SwiftUI
 
 struct RockView: View {
+    @State private var showFavoritesOnly = false
     @Environment(\.modelContext) var modelContext
     @Query var rocks: [Rock]
+    
+    
+    var filteredRocks: [Rock] {
+        rocks.filter { rock in
+            (!showFavoritesOnly || rock.isFavorite)
+        }
+    }
     
     var body: some View {
         ZStack {
             
             // list that displays rocks stored in database
             List {
-                ForEach(rocks) { rock in
+                Toggle(isOn: $showFavoritesOnly) {
+                    Text("Favorites")
+                }
+                ForEach(filteredRocks) { rock in
                     NavigationLink(value: rock) {
                         HStack {
                             VStack (alignment: .leading) {
-                                Text(rock.name)
+                                HStack {
+                                    Text(rock.name)
+                                    
+                                    if rock.isFavorite {
+                                        Image(systemName: "star.fill")
+                                            .foregroundStyle(.indigo)
+                                    }
+                                }
                                 Text(rock.shape)
                                 Text("$\(rock.purchasePrice, specifier: "%.2f")")
                             }
@@ -38,11 +56,11 @@ struct RockView: View {
                                     }
                             }
                         }
-                        
                     }
                 }
                 .onDelete(perform: deleteRock)
             }
+            .animation(.default, value: showFavoritesOnly)
             .listStyle(PlainListStyle()) // Optional: Removes default list styling
             .background(Color.clear) // Background for the list itself to make it stand out
             .padding() // Padding to ensure the list is centered
@@ -69,6 +87,10 @@ struct RockView: View {
             let rock = rocks[offset]
             modelContext.delete(rock)
         }
+    }
+    
+    func toggleFavorite() {
+        
     }
 }
 

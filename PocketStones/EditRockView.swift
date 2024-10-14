@@ -58,12 +58,22 @@ struct EditRockView: View {
                     }
                     
                     Section(header: Text("")) {
+                        HStack {
+                            Text("Favorite")
+                            
+                            Spacer()
+                            
+                            FavoriteButton(isSet: $rock.isFavorite)
+                        }
+                    }
+                    
+                    Section(header: Text("")) {
                         TextField("Name", text: $rock.name)
                             .textContentType(.name)
                         
                         TextField("Shape", text: $rock.shape)
                         
-                        TextField("Purchase Price", value: $rock.purchasePrice, formatter: formatter)
+                        TextField("Purchase Price (Rounds to nearest $)", value: $rock.purchasePrice, formatter: formatter)
                     }
                     
                     // section header with string so it creates space between the sections.

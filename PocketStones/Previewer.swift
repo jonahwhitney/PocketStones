@@ -18,7 +18,7 @@ struct Previewer {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         container = try ModelContainer(for: Rock.self, configurations: config)
         
-        rock = Rock(name: "Amethyst", shape: "Sphere", details: "", purchasePrice: 80)
+        rock = Rock(name: "Amethyst", shape: "Sphere", details: "", purchasePrice: 80, isFavorite: false)
         
         container.mainContext.insert(rock)
     }

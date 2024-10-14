@@ -86,7 +86,7 @@ struct ContentView: View {
     func addRock () {
         
         // create new rock
-        let rock = Rock(name: "", shape: "", details: "", purchasePrice: 0)
+        let rock = Rock(name: "", shape: "", details: "", purchasePrice: 0, isFavorite: false)
         // insert new rock into the modelContext
         modelContext.insert(rock)
         // navigate to editing screen
