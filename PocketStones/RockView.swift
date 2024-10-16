@@ -88,10 +88,6 @@ struct RockView: View {
             modelContext.delete(rock)
         }
     }
-    
-    func toggleFavorite() {
-        
-    }
 }
 
 #Preview {
