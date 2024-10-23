@@ -11,12 +11,12 @@ import SwiftData
 @Model
 class Rock {
     
-    var name: String
-    var shape: String
-    var details: String
-    var purchasePrice: Float
+    var name: String = ""
+    var shape: String = ""
+    var details: String = ""
+    var purchasePrice: Float = 0
     @Attribute(.externalStorage) var photo: Data?
-    var isFavorite: Bool
+    var isFavorite: Bool = false
     
     init(name: String, shape: String, details: String, purchasePrice: Float, isFavorite: Bool) {
         self.name = name
