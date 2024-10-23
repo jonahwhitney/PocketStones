@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8F38B67A2CADA5E80024DE61 /* TotalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F38B6792CADA5E80024DE61 /* TotalsView.swift */; };
 		8F38B67C2CADA8740024DE61 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F38B67B2CADA8740024DE61 /* MainView.swift */; };
+		8F687A892CC968E600098D13 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F687A882CC968E600098D13 /* ImagePicker.swift */; };
 		8F72D7A12CBDB2E60099F9E2 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F72D7A02CBDB2E60099F9E2 /* FavoriteButton.swift */; };
 		8F81D2F92CAEF5D800629172 /* Previewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F81D2F82CAEF5D800629172 /* Previewer.swift */; };
 		8F8EEE532C987C5A00BF6DEA /* PocketStonesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8EEE522C987C5A00BF6DEA /* PocketStonesApp.swift */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		8F38B6792CADA5E80024DE61 /* TotalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalsView.swift; sourceTree = "<group>"; };
 		8F38B67B2CADA8740024DE61 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		8F687A882CC968E600098D13 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		8F72D7A02CBDB2E60099F9E2 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		8F81D2F82CAEF5D800629172 /* Previewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Previewer.swift; sourceTree = "<group>"; };
 		8F8EEE4F2C987C5A00BF6DEA /* PocketStones.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketStones.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +72,7 @@
 				8F8EEE542C987C5A00BF6DEA /* ContentView.swift */,
 				8FE1B2A52CA478360067A737 /* RockView.swift */,
 				8F8EEE622C988D6D00BF6DEA /* EditRockView.swift */,
+				8F687A882CC968E600098D13 /* ImagePicker.swift */,
 				8F72D7A02CBDB2E60099F9E2 /* FavoriteButton.swift */,
 				8F38B6792CADA5E80024DE61 /* TotalsView.swift */,
 				8F8EEE602C987E2300BF6DEA /* Rock.swift */,
@@ -160,6 +163,7 @@
 			files = (
 				8F8EEE552C987C5A00BF6DEA /* ContentView.swift in Sources */,
 				8F38B67C2CADA8740024DE61 /* MainView.swift in Sources */,
+				8F687A892CC968E600098D13 /* ImagePicker.swift in Sources */,
 				8FE1B2A62CA478360067A737 /* RockView.swift in Sources */,
 				8F72D7A12CBDB2E60099F9E2 /* FavoriteButton.swift in Sources */,
 				8F81D2F92CAEF5D800629172 /* Previewer.swift in Sources */,
@@ -303,6 +307,7 @@
 				DEVELOPMENT_TEAM = QF832KA9R8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "\"This app uses the camera to take pictures for storage\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -332,6 +337,7 @@
 				DEVELOPMENT_TEAM = QF832KA9R8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "\"This app uses the camera to take pictures for storage\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
