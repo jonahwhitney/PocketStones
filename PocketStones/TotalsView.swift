@@ -4,10 +4,13 @@
 //
 //  Created by Jonah Whitney on 10/2/24.
 //
-
+import SwiftData
 import SwiftUI
+import Charts
 
 struct TotalsView: View {
+    @Query var rocks: [Rock]
+        
     var body: some View {
         ZStack {
             // Sets background color
@@ -17,7 +20,9 @@ struct TotalsView: View {
             VStack(spacing: 0) {
                 // Header section with background color
                 Rectangle()
-                    .frame(height: 100) // Set a non-zero height
+                    .containerRelativeFrame(.vertical) { size, axis in
+                        size * 0.14
+                    } // Set a non-zero height
                     .foregroundColor(Color.indigo.opacity(0.4)) // Use foregroundColor
                     .overlay(
                         Text("Totals Overview")
@@ -29,11 +34,51 @@ struct TotalsView: View {
                     .edgesIgnoringSafeArea(.all)
                 
                 // Other content can go here
-                Spacer() // Pushes content to the top
+                
+                VStack {
+                    
+                    Text("Total Stones - \(rocks.count)")
+                        .font(.title)
+                    .fontWeight(.bold)
+                    
+                    Text("Total Value - $\(calculateValue())")
+                        .font(.title)
+                        .fontWeight(.bold)
+                }
+                .shadow(color: .indigo, radius: 7, x: 10, y: 10)
+                
+                Spacer()
+                
+                Divider()
+                
+                Chart {
+                    
+                    ForEach (rocks) { rock in
+                                                
+                        PointMark(x: .value("Shape of Rock", rock.shape), y: .value("Value", rock.purchasePrice))
+                            .annotation {
+                                Text(rock.name)
+                            }
+                    }
+                }
+                .padding()
             }
             .padding(0) // Remove any default padding if necessary
         }
     }
+    
+    // this func calculates the value of all the rocks purchasePrice
+    func calculateValue () -> Int {
+        
+        var rockValue = 0
+        
+        for rock in rocks {
+            rockValue += Int(rock.purchasePrice)
+        }
+        
+        return rockValue
+    }
+    
 }
 
 #Preview {

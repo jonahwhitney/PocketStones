@@ -12,7 +12,7 @@ import SwiftUI
 struct PocketStonesApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
         .modelContainer(for: Rock.self)
     }
